@@ -8,3 +8,4 @@ shap
 umap-learn
 matplotlib
 plotly
+fpdf
