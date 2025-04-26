@@ -9,3 +9,4 @@ umap-learn
 matplotlib
 plotly
 fpdf
+kaggle
