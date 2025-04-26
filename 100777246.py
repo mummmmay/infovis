@@ -140,7 +140,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # Loading of dataset directy from Kaggle
-def download_dataset():
+# def download_dataset():
 
     """
     Downloads the Credit Card Fraud Detection dataset from Kaggle if it is not already present.
@@ -152,9 +152,9 @@ def download_dataset():
         If some forgot to install the Kaggle CLI or didn't configure API keys which will cause the Kaggle download command fails (subprocess.CalledProcessError)
     """
 
-    if not os.path.exists("creditcardfraud.zip"):
-        st.info("📥 Downloading dataset...") # This shows a Streamlit message saying "Downloading..." so users know what’s happening.
-        subprocess.run(["kaggle", "datasets", "download", "-d", "mlg-ulb/creditcardfraud"], check=True) # Use system command kaggle datasets download to download the dataset from Kaggle. check=True makes Python throw an error if the download fails.
+    # if not os.path.exists("creditcardfraud.zip"):
+    #    st.info("📥 Downloading dataset...") # This shows a Streamlit message saying "Downloading..." so users know what’s happening.
+    #    subprocess.run(["kaggle", "datasets", "download", "-d", "mlg-ulb/creditcardfraud"], check=True) # Use system command kaggle datasets download to download the dataset from Kaggle. check=True makes Python throw an error if the download fails.
 
 def extract_dataset():
 
@@ -194,12 +194,12 @@ def load_data():
         If the CSV is missing or broken, pd.read_csv() will throw an error — but that's okay for now because downloading and extraction happen first.
     """
         
-    download_dataset() # Makes sure the dataset ZIP is downloaded.
-    extract_dataset() # Makes sure the dataset is extracted to CSV.
-    df = pd.read_csv("data/creditcard.csv") # Loads the extracted CSV file into a pandas DataFrame.
-    df["Hour"] = (df["Time"] // 3600).astype(int) # Adds a new column Hour to represent the transaction time grouped into hours.
-    df["Class"] = df["Class"].astype(int) # Makes sure the class labels are integers (good for ML models).
-    return df # Returns the preprocessed DataFrame. This df becomes our main dataset used throughout the whole dashboard.
+    # download_dataset() # Makes sure the dataset ZIP is downloaded.
+    # extract_dataset() # Makes sure the dataset is extracted to CSV.
+    df = pd.read_csv('creditcard.csv') # Loads the extracted CSV file into a pandas DataFrame.
+    # df["Hour"] = (df["Time"] // 3600).astype(int) # Adds a new column Hour to represent the transaction time grouped into hours.
+    # df["Class"] = df["Class"].astype(int) # Makes sure the class labels are integers (good for ML models).
+    # return df # Returns the preprocessed DataFrame. This df becomes our main dataset used throughout the whole dashboard.
 
 #  *************************************************************************
 # Load and Prepare Main Dataset
